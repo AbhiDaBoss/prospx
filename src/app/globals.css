@@ -2,25 +2,63 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #111827;
+  --surface: #ffffff;       /* cards, panels */
+  --surface-soft: #F8F8F6;  /* page backgrounds, subtle areas */
+  --surface-muted: #F2F2F0; /* inputs, secondary fills */
+  --border: #E8E8E6;        /* borders */
+  --navy: #1B2A4A;
+  --navy-dark: #131f36;
+  --navy-light: #243662;
+  --gold: #C9A96E;
+  --gold-light: #D4B97E;
+  --gold-dark: #A8863E;
 }
 
 body {
-  background: var(--background);
+  background: var(--surface-soft);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Consistent surface overrides */
+.bg-white { background-color: var(--surface) !important; }
+.bg-gray-50 { background-color: var(--surface-soft) !important; }
+.bg-gray-100 { background-color: var(--surface-muted) !important; }
+.border-gray-100 { border-color: var(--border) !important; }
+.border-gray-200 { border-color: var(--border) !important; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up { animation: fadeUp 0.5s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
