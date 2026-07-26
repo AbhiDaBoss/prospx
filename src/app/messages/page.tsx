@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { mockMessages, mockCoaches } from '@/lib/mock-data'
 import { Send, Paperclip, Search, CheckCheck, Circle } from 'lucide-react'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const conversations = [
   { id: 'c1', name: 'Coach David Miller', school: 'U of Michigan', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80', lastMsg: 'Perfect! We\'ll get everything set up.', time: '2h', unread: 2 },
@@ -12,7 +13,13 @@ const conversations = [
   { id: 'c3', name: 'Coach Marcus Green', school: 'Kentucky', avatar: '', lastMsg: 'Great highlights! Lets connect.', time: '3d', unread: 1 },
 ]
 
-export default function Messages() {
+export default function MessagesPage() {
+  return <Suspense><Messages /></Suspense>
+}
+
+function Messages() {
+  const searchParams = useSearchParams()
+  const role = (searchParams.get('role') ?? 'athlete') as 'athlete' | 'coach'
   const [active, setActive] = useState('c1')
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState(mockMessages)
@@ -34,7 +41,7 @@ export default function Messages() {
   const activeConv = conversations.find(c => c.id === active)
 
   return (
-    <DashboardLayout role="athlete" title="Messages" subtitle="Connect with coaches directly">
+    <DashboardLayout role={role} title="Messages" subtitle={role === 'coach' ? 'Connect with prospects directly' : 'Connect with coaches directly'}>
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" style={{ height: 'calc(100vh - 140px)' }}>
         <div className="flex h-full">
           {/* Conversation list */}

@@ -18,7 +18,7 @@ const athleteNav = [
   { label: 'AI Assistant', href: '/athlete/ai', icon: Zap },
   { label: 'Recruiting Tracker', href: '/athlete/tracker', icon: Target },
   { label: 'Performance', href: '/athlete/performance', icon: BarChart3 },
-  { label: 'Messages', href: '/messages', icon: MessageSquare },
+  { label: 'Messages', href: '/messages?role=athlete', icon: MessageSquare },
   { label: 'Events & Camps', href: '/events', icon: Calendar },
   { label: 'Resume', href: '/athlete/resume', icon: FileText },
 ]
@@ -30,7 +30,7 @@ const coachNav = [
   { label: 'Discover', href: '/coach/discover', icon: Star },
   { label: 'AI Assistant', href: '/coach/ai', icon: Zap },
   { label: 'Scouting Reports', href: '/coach/reports', icon: FileText },
-  { label: 'Messages', href: '/messages', icon: MessageSquare },
+  { label: 'Messages', href: '/messages?role=coach', icon: MessageSquare },
   { label: 'Analytics', href: '/coach/analytics', icon: BarChart3 },
   { label: 'Saved Prospects', href: '/coach/saved', icon: BookOpen },
   { label: 'Events', href: '/events', icon: Calendar },
