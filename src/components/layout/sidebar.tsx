@@ -19,7 +19,7 @@ const athleteNav = [
   { label: 'Recruiting Tracker', href: '/athlete/tracker', icon: Target },
   { label: 'Performance', href: '/athlete/performance', icon: BarChart3 },
   { label: 'Messages', href: '/messages?role=athlete', icon: MessageSquare },
-  { label: 'Events & Camps', href: '/events', icon: Calendar },
+  { label: 'Events & Camps', href: '/events?role=athlete', icon: Calendar },
   { label: 'Resume', href: '/athlete/resume', icon: FileText },
 ]
 
@@ -33,7 +33,7 @@ const coachNav = [
   { label: 'Messages', href: '/messages?role=coach', icon: MessageSquare },
   { label: 'Analytics', href: '/coach/analytics', icon: BarChart3 },
   { label: 'Saved Prospects', href: '/coach/saved', icon: BookOpen },
-  { label: 'Events', href: '/events', icon: Calendar },
+  { label: 'Events', href: '/events?role=coach', icon: Calendar },
 ]
 
 interface SidebarProps {

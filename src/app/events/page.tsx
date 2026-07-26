@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { mockEvents } from '@/lib/mock-data'
 import { Calendar, MapPin, DollarSign, CheckCircle2, Search, Filter } from 'lucide-react'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const typeColors = {
   showcase: 'blue',
@@ -14,7 +15,13 @@ const typeColors = {
   combine: 'warning',
 } as const
 
-export default function Events() {
+export default function EventsPage() {
+  return <Suspense><Events /></Suspense>
+}
+
+function Events() {
+  const searchParams = useSearchParams()
+  const role = (searchParams.get('role') ?? 'athlete') as 'athlete' | 'coach'
   const [events, setEvents] = useState(mockEvents)
   const [filter, setFilter] = useState('')
 
@@ -23,7 +30,7 @@ export default function Events() {
   }
 
   return (
-    <DashboardLayout role="athlete" title="Events & Camps" subtitle="Showcases, tournaments, and combines near you">
+    <DashboardLayout role={role} title="Events & Camps" subtitle="Showcases, tournaments, and combines near you">
       <div className="flex gap-4 mb-6">
         <div className="flex-1 relative">
           <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
