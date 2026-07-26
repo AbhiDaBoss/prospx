@@ -20,7 +20,6 @@ const athleteNav = [
   { label: 'Performance', href: '/athlete/performance', icon: BarChart3 },
   { label: 'Messages', href: '/messages?role=athlete', icon: MessageSquare },
   { label: 'Events & Camps', href: '/events?role=athlete', icon: Calendar },
-  { label: 'Resume', href: '/athlete/resume', icon: FileText },
 ]
 
 const coachNav = [

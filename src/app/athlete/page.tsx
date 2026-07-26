@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { AthleteCard } from '@/components/shared/athlete-card'
 import {
   Eye, MessageSquare, Star, Target, TrendingUp, Calendar,
-  Zap, CheckCircle2, ArrowRight, Play, Users, Award, BookOpen
+  Zap, CheckCircle2, ArrowRight, Play, Users, Award
 } from 'lucide-react'
 import { mockAthletes, mockTrackerEntries, mockEvents } from '@/lib/mock-data'
 import { getGradeBg, calculateOverallGrade } from '@/lib/utils'
@@ -240,7 +240,6 @@ export default function AthleteDashboard() {
               <div className="space-y-2">
                 <Link href="/athlete/videos"><Button variant="outline" size="sm" className="w-full justify-start"><Play size={14} /> Upload Highlight</Button></Link>
                 <Link href="/athlete/discover"><Button variant="outline" size="sm" className="w-full justify-start"><Users size={14} /> Find Coaches</Button></Link>
-                <Link href="/athlete/resume"><Button variant="outline" size="sm" className="w-full justify-start"><BookOpen size={14} /> Download Resume</Button></Link>
                 <Link href="/athlete/ai"><Button variant="outline" size="sm" className="w-full justify-start"><Zap size={14} /> AI Analysis</Button></Link>
               </div>
             </CardContent>
